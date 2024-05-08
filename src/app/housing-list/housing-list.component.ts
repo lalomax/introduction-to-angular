@@ -19,12 +19,16 @@ export class HousingListComponent implements OnInit {
   }
 
   searchHousingLocations(searchText: string) {
-    if (!searchText) return;
 
-    this.results = this.locationList.filter((location: any) => location.city.toLowerCase().includes(searchText.toLowerCase()));
+    if (!searchText) return;
+    
+    this.results = this.locationList.filter((location: HousingLocation) => location.city.toLowerCase().includes(searchText.toLowerCase()));
   }
 
   selectHousingLocation(location: HousingLocation) {
     this.locationSelectedEvent.emit(location);
   }
+
+  
 }
+
